@@ -37,7 +37,7 @@ double Triangle::getSurface() {
     double p = (side1 + side2 + side3) / 2;
 
     return sqrt(p * (p - side1) * (p - side2) * (p - side3));
-}
+}                       
 
 std::string Triangle::toString()
 {
