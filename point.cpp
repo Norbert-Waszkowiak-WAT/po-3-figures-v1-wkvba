@@ -1,14 +1,15 @@
 #include "point.h"
 #include <sstream>
 #include <iomanip>
+#include <cmath>
 
 Point::Point(double x, double y): x(x), y(y) {};
 
 Point::Point(const Point &other): x(other.x), y(other.y) {};
 
-bool Point::equals(Point &other)
+bool Point::equals(const Point &other)
 {
-    return other.getX() == x && other.getY() == y;
+    return other.x == x && other.y == y;
 };
 
 double Point::getX()
@@ -40,4 +41,11 @@ std::string Point::toString()
     oss << "Point(" << x << ", " << y << ")";
     return oss.str();
 };
+
+double Point::distanceTo(const Point &other)
+{
+    double dx = x - other.x;
+    double dy = y - other.y;
+    return sqrt(dx * dx + dy * dy);
+}
 
